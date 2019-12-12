@@ -5,7 +5,7 @@ $(document).ready(function() {
     var month = moment().month();
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    var plannerTimes = [9, 10, 11, 12, 1, 2, 3, 4, 5];
+    var plannerTimes = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
     var day = moment().date();
 
@@ -15,7 +15,6 @@ $(document).ready(function() {
     $(".jumbotron").append(dayAndDateDiv);
 
     for (i = 0; i < plannerTimes.length; i++){
-        // console.log("planner time:" + plannerTimes[i]);
         var row = $("<div class='row'>");
         var timeDiv = $("<div class='col-1'>");
         var timeH2 = $("<h2>");
@@ -36,9 +35,6 @@ $(document).ready(function() {
     };
 
     var time = moment().hour();
-    if (time>12){
-        time = time-12;
-    };
     
     // dynamically create jquery selector based on current hour
     timeSelectStr = ".row[data-hour="+time.toString()+"]"
@@ -46,6 +42,16 @@ $(document).ready(function() {
     // add class to current time
     var currentHour = $( timeSelectStr );
     currentHour.addClass("current-hour");
+
+    // add class to time already past
+    for (x = 0; x < plannerTimes.length; x++){
+        if (plannerTimes[x] < time){
+            timeEarlierSelectStr = ".row[data-hour="+plannerTimes[x].toString()+"]";
+            var earlierHour = $(timeEarlierSelectStr);
+            console.log(timeEarlierSelectStr);
+            earlierHour.addClass("earlier");
+        }
+    }
     
 });
 
