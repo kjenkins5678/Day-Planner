@@ -10,3 +10,6 @@ var dayAndDateDiv = $("<div>");
 dayAndDateDiv.text(daysOfTheWeek[dayOfWeek]+", "+months[month] + " " + day)
 
 $(".jumbotron").append(dayAndDateDiv);
+
+var row = $("<div class=row>");
+$(".hours").append(row);
