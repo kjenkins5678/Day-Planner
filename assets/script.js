@@ -22,11 +22,11 @@ $(document).ready(function() {
         var textDiv = $("<div class='col-9'>");
         var textArea = $("<textarea class='textArea'>");
         var btnDiv = $("<div class=col-2>");
-        var btn = $('<button>')
+        var btn = $('<button>');
 
         btn.text('Save')
         timeH2.text(plannerTimes[i]);
-
+        
         btnDiv.append(btn);
         textDiv.append(textArea);
         timeDiv.append(timeH2);
