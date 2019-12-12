@@ -17,11 +17,11 @@ $(document).ready(function() {
     for (i = 0; i < plannerTimes.length; i++){
         // console.log("planner time:" + plannerTimes[i]);
         var row = $("<div class='row'>");
-        var timeDiv = $("<div class='col-2'>");
+        var timeDiv = $("<div class='col-1'>");
         var timeH2 = $("<h2>");
-        var textDiv = $("<div class='col-8'>");
-        var textArea = $("<textarea>");
-        var btnDiv = $("<div class=col-auto>");
+        var textDiv = $("<div class='col-9'>");
+        var textArea = $("<textarea class='textArea'>");
+        var btnDiv = $("<div class=col-2>");
         var btn = $('<button>')
 
         btn.text('Save')
