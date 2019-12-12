@@ -5,7 +5,7 @@ $(document).ready(function() {
     var month = moment().month();
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    var plannerTimes = ['9', '10', '11', '12','1', '2', '3', '4', '5' ];
+    var plannerTimes = [9, 10, 11, 12, 1, 2, 3, 4, 5];
 
     var day = moment().date();
 
@@ -26,14 +26,27 @@ $(document).ready(function() {
 
         btn.text('Save')
         timeH2.text(plannerTimes[i]);
-        
+
         btnDiv.append(btn);
         textDiv.append(textArea);
         timeDiv.append(timeH2);
+        row.attr("data-hour", plannerTimes[i]);
         row.append(timeDiv, textDiv, btnDiv);
         $(".hours").append(row);
     };
 
+    var time = moment().hour();
+    if (time>12){
+        time = time-12;
+    };
+    
+    // dynamically create jquery selector based on current hour
+    timeSelectStr = ".row[data-hour="+time.toString()+"]"
+
+    // add class to current time
+    var currentHour = $( timeSelectStr );
+    currentHour.addClass("current-hour");
+    
 });
 
         
