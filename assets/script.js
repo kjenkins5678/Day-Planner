@@ -16,12 +16,21 @@ $(document).ready(function() {
 
     for (i = 0; i < plannerTimes.length; i++){
         // console.log("planner time:" + plannerTimes[i]);
-        var row = $("<div class=row>");
-        var timeDiv = $('<div>');
-        var timeH2 = $('<h2>');
+        var row = $("<div class='row'>");
+        var timeDiv = $("<div class='col-2'>");
+        var timeH2 = $("<h2>");
+        var textDiv = $("<div class='col-8'>");
+        var textArea = $("<textarea>");
+        var btnDiv = $("<div class=col-auto>");
+        var btn = $('<button>')
+
+        btn.text('Save')
         timeH2.text(plannerTimes[i]);
+
+        btnDiv.append(btn);
+        textDiv.append(textArea);
         timeDiv.append(timeH2);
-        row.append(timeDiv);
+        row.append(timeDiv, textDiv, btnDiv);
         $(".hours").append(row);
     };
 
