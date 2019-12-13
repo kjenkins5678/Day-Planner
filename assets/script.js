@@ -1,15 +1,14 @@
 $(document).ready(function() {
-    var dayOfWeek = moment().day();
+
     var daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
-    var month = moment().month();
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
     var plannerTimes = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
-    var day = moment().date();
-
     var reminders = [];
+
+    var dayOfWeek = moment().day();
+    var month = moment().month();
+    var day = moment().date();
 
     var dayAndDateDiv = $("<div>");
     dayAndDateDiv.text(daysOfTheWeek[dayOfWeek]+", "+months[month] + " " + day)
@@ -70,6 +69,16 @@ $(document).ready(function() {
 
         localStorage.setItem("reminders", JSON.stringify(reminders));
       });
+
+      var fromLocalStor = localStorage.getItem("reminders");
+      fromLocalStor = JSON.parse(fromLocalStor); //convert string to object
+
+      console.log(fromLocalStor);
+      for (y = 0; y<fromLocalStor.length; y++){
+          console.log(fromLocalStor[y]);
+      };
+
+
     
 });
 
