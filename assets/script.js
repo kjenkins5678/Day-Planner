@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     var day = moment().date();
 
-    var reminders = [];
+    var reminders = {};
 
     var dayAndDateDiv = $("<div>");
     dayAndDateDiv.text(daysOfTheWeek[dayOfWeek]+", "+months[month] + " " + day)
@@ -59,12 +59,15 @@ $(document).ready(function() {
     }
 
     $(".save-btn").on("click", function() {
-        console.log($(this).parents(".row").find(".textArea").val())
-        // var btnClickedDataValue = $(this).attr("data-hour");
-        // var selectorStr = '$(".textArea[data-hour='+ btnClickedDataValue +']")'
-        // var text = selectorStr.value;
-        // console.log(text);
-        // localStorage.setItem("reminders", JSON.stringify(todos));
+        var text = $(this).parents(".row").find(".textArea").val().trim();
+        var textHour = $(this).parents(".row").data("hour");
+        console.log(textHour);
+
+        // reminders.push(text);
+        // text.value = "";
+
+        // console.log(reminders)
+        // localStorage.setItem("reminders", JSON.stringify(reminders));
       });
     
 });
