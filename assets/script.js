@@ -20,8 +20,8 @@ $(document).ready(function() {
         var timeH2 = $("<h2>");
         var textDiv = $("<div class='col-9'>");
         var textArea = $("<textarea class='textArea'>");
-        var btnDiv = $("<div class=col-2>");
-        var btn = $('<button>');
+        var btnDiv = $("<div class='col-2'>");
+        var btn = $("<button class='save-btn'>");
 
         btn.text('Save')
         timeH2.text(plannerTimes[i]);
@@ -48,10 +48,13 @@ $(document).ready(function() {
         if (plannerTimes[x] < time){
             timeEarlierSelectStr = ".row[data-hour="+plannerTimes[x].toString()+"]";
             var earlierHour = $(timeEarlierSelectStr);
-            console.log(timeEarlierSelectStr);
             earlierHour.addClass("earlier");
         }
     }
+
+    $(".save-btn").on("click", function() {
+        console.log("Btn has been clicked!");
+      });
     
 });
 
