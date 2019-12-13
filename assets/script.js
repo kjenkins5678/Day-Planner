@@ -68,7 +68,7 @@ $(document).ready(function() {
         reminders.push(timeAndText);
         console.log(reminders);
 
-        // localStorage.setItem("reminders", JSON.stringify(reminders));
+        localStorage.setItem("reminders", JSON.stringify(reminders));
       });
     
 });
