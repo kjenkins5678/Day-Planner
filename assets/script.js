@@ -9,6 +9,8 @@ $(document).ready(function() {
 
     var day = moment().date();
 
+    var reminders = [];
+
     var dayAndDateDiv = $("<div>");
     dayAndDateDiv.text(daysOfTheWeek[dayOfWeek]+", "+months[month] + " " + day)
 
@@ -29,7 +31,11 @@ $(document).ready(function() {
         btnDiv.append(btn);
         textDiv.append(textArea);
         timeDiv.append(timeH2);
+
+        btn.attr("data-hour", plannerTimes[i]);
+        textArea.attr("data-hour", plannerTimes[i]);
         row.attr("data-hour", plannerTimes[i]);
+
         row.append(timeDiv, textDiv, btnDiv);
         $(".hours").append(row);
     };
@@ -53,7 +59,12 @@ $(document).ready(function() {
     }
 
     $(".save-btn").on("click", function() {
-        console.log("Btn has been clicked!");
+        console.log($(this).parents(".row").find(".textArea").val())
+        // var btnClickedDataValue = $(this).attr("data-hour");
+        // var selectorStr = '$(".textArea[data-hour='+ btnClickedDataValue +']")'
+        // var text = selectorStr.value;
+        // console.log(text);
+        // localStorage.setItem("reminders", JSON.stringify(todos));
       });
     
 });
