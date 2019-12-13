@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     var day = moment().date();
 
-    var reminders = {};
+    var reminders = [];
 
     var dayAndDateDiv = $("<div>");
     dayAndDateDiv.text(daysOfTheWeek[dayOfWeek]+", "+months[month] + " " + day)
@@ -61,12 +61,13 @@ $(document).ready(function() {
     $(".save-btn").on("click", function() {
         var text = $(this).parents(".row").find(".textArea").val().trim();
         var textHour = $(this).parents(".row").data("hour");
-        console.log(textHour);
+        var timeAndText = {};
+        timeAndText[textHour] = text;
+        // console.log(timeAndText);
 
-        // reminders.push(text);
-        // text.value = "";
+        reminders.push(timeAndText);
+        console.log(reminders);
 
-        // console.log(reminders)
         // localStorage.setItem("reminders", JSON.stringify(reminders));
       });
     
