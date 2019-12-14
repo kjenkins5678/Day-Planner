@@ -73,12 +73,14 @@ $(document).ready(function() {
       var fromLocalStor = localStorage.getItem("reminders");
       fromLocalStor = JSON.parse(fromLocalStor); //convert string to object
 
-      console.log(fromLocalStor);
       for (y = 0; y<fromLocalStor.length; y++){
-          console.log(fromLocalStor[y]);
+          for (var key in fromLocalStor[y]) {
+              console.log(fromLocalStor[y][key]);
+              $(".textArea[data-hour="+ key +"]").text(fromLocalStor[y][key]);
+          };
       };
 
-
+    //   $(".textArea[data-hour='9']").text('testing'); //This works to set the value of the text area
     
 });
 
